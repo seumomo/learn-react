@@ -1,7 +1,7 @@
 import debounce from '@/utils/debounce';
 import { useState, createContext, useContext, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { string, func } from 'prop-types';
+import { string, func, shape } from 'prop-types';
 
 /* Context ------------------------------------------------------------------ */
 
@@ -24,7 +24,7 @@ import { string, func } from 'prop-types';
 /* -------------------------------------------------------------------------- */
 
 // 1. Context 생성
-// Theme 상태/업데이트 함수(dispach) 공급
+// Theme 상태/업데이트 함수(dispatch) 공급
 const ThemeContext = createContext();
 
 /* -------------------------------------------------------------------------- */
@@ -154,7 +154,10 @@ function GrandParent({ color, onChangeColor }) {
 }
 
 GrandParent.propTypes = {
-  color: string,
+  color: shape({
+    fg: string,
+    bg: string,
+  }),
   onChangeColor: func,
 };
 

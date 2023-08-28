@@ -1,4 +1,5 @@
 import { useListStore } from '@/store/list';
+import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -84,14 +85,20 @@ function ZustandLibrary() {
 export default ZustandLibrary;
 
 function AddItemControl() {
-  const itemRef = useRef();
+  const itemRef = useRef(null);
   const addItem = useListStore((state) => state.addItem);
 
+  const handleAddItem = () => {
+    const newItemTitle = itemRef.current.value;
+    addItem(newItemTitle);
+    itemRef.current.value = '';
+  };
+
   return (
-    <div className="my-5">
+    <div className="mt-5">
       <input
-        ref={itemRef}
         type="text"
+        ref={itemRef}
         aria-label="학습 주제 추가"
         placeholder="예) Zustand 발음 10번 하기"
         className="py-1 px-2 border-b border-b-slate-400 mr-2"
@@ -105,22 +112,35 @@ function AddItemControl() {
 
 function ItemList() {
   const list = useListStore((state) => state.list);
+
   return (
-    <ul>
+    <ul className="my-8">
       {list?.map((item) => (
-        <Item key={item.id} item={item} />
+        <Item key={item.id} id={item.id} />
       ))}
     </ul>
   );
 }
 
-function Item({ item }) {
+function Item({ id }) {
+  const item = useListStore((state) =>
+    state.list.find((item) => item.id === id)
+  );
+  const deleteItem = useListStore((state) => state.deleteItem);
+  const handleDeleteItem = (deleteId) => {
+    deleteItem(deleteId);
+  };
+
   return (
-    <li key={item.id}>
-      {item.title}
+    <li>
+      {item.title}{' '}
       <button type="button" onClick={() => handleDeleteItem(item.id)}>
         삭제
       </button>
     </li>
   );
 }
+
+Item.propTypes = {
+  id: string.isRequired,
+};

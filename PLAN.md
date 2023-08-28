@@ -4,52 +4,52 @@
 
 ## 디자인 & 애니메이션
 
-- [ ] 파비콘 / 로고 애니메이션
-- [ ] 페이지 전환 애니메이션 ([참고](https://www.framer.com/motion/examples/#react-router-6-page-transitions) / [createBrowserRouter 해결 방법](https://stackoverflow.com/a/74351729))
-- [ ] 프로덕트 리스트 페이지 시퀀스 애니메이션
-- [ ] 페이지 디자인(정리) 
-    - [ ] 회원가입
-    - [ ] 로그인
-    - [ ] 상품 등록 (페이지 제목 설정)
-    - [ ] 상품 수정 (페이지 제목 설정)
-- [ ] 반응형 디자인
-    - [ ] 프로덕트 페이지 (멀티 컬럼)
-    - [ ] `md:`, `lg:` 브레이크포인트 클래스 이름 활용
-- [ ] 다크 모드 디자인
-    - [ ] `dark:` 클래스 이름 활용
+- [x] 파비콘 / 로고 애니메이션
+- [x] 페이지 전환 애니메이션 ([참고](https://www.framer.com/motion/examples/#react-router-6-page-transitions) / [createBrowserRouter 해결 방법](https://stackoverflow.com/a/74351729))
+- [x] 프로덕트 리스트 페이지 시퀀스 애니메이션
+- [x] 페이지 디자인(정리) 
+    - [x] 회원가입
+    - [x] 로그인
+    - [x] 상품 등록 (페이지 제목 설정)
+    - [x] 상품 수정 (페이지 제목 설정)
+- [x] 반응형 디자인
+    - [x] 프로덕트 페이지 (멀티 컬럼)
+    - [x] `md:`, `lg:` 브레이크포인트 클래스 이름 활용
+- [x] 다크 모드 디자인
+    - [x] `dark:` 클래스 이름 활용
 
 ## 컴포넌트 추출
 
-- [ ] 재사용 가능하도록 반복적인 로직을 컴포넌트로 추출
+- [x] 재사용 가능하도록 반복적인 로직을 컴포넌트로 추출
     - [ ] 회원가입
-    - [ ] 로그인
+    - [x] 로그인
     - [ ] 상품 등록
     - [ ] 상품 수정
 
 ## 인증 
 
-- [ ] `useStorage` 커스텀 훅 재구성(re-design)
+- [x] `useStorage` 커스텀 훅 리팩터링
 
 ## 라우팅
 
-- [ ] 인증 상태 + 보호된 루트에서 새로고침 시 로그인 페이지로 이동하는 문제
-- [ ] 루트 보호 URL 직접 접속 시, 로그인 후 접속 URL로 연결
-- [ ] 브라우저 히스토리 이력 대체(replace)
+- [x] 인증 상태 + 보호된 루트에서 새로고침 시 로그인 페이지로 이동하는 문제
+- [x] 루트 보호 URL 직접 접속 시, 로그인 후 접속 URL로 연결
+- [x] 브라우저 히스토리 이력 대체(replace)
     1. 루트 보호 URL 접속 시도
     1. 로그인 페이지 이동 (로그인 접속 이력 제외)
     1. 접속 URL로 연결
 
 ## PocketBase 관계 확장
 
-- [ ] 관계형 데이터베이스란? ([참고](https://cloud.google.com/learn/what-is-a-relational-database?hl=ko))
-- [ ] 데이터 관계 확장 요청(Expand Request)
-- [ ] 데이터 간 관계 설정 방법 실습
+- [x] 관계형 데이터베이스란? ([참고](https://cloud.google.com/learn/what-is-a-relational-database?hl=ko))
+- [x] 데이터 관계 확장 요청(Expand Request)
+- [x] 데이터 간 관계 설정 방법 실습
 
 ## 스타일 모듈
 
-- [ ] JSX 마크업이 복잡한 경우, CSS 모듈을 사용해 스타일 분리
-- [ ] 스타일 분리를 선호하지 않는다면?<br />[Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold) 확장 활용 ([Toggle](https://marketplace.visualstudio.com/items?itemName=rebornix.toggle) 확장 사용 시, 단축키 등록 가능)
-- [ ] Prettier + Tailwind CSS Intellisence 사용 시 너무 느리다면?<br />[Rome](https://rome.tools/) 사용 권장
+- [x] JSX 마크업이 복잡한 경우, CSS 모듈을 사용해 스타일 분리
+- [x] 스타일 분리를 선호하지 않는다면?<br />[Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold) 확장 활용 ([Toggle](https://marketplace.visualstudio.com/items?itemName=rebornix.toggle) 확장 사용 시, 단축키 등록 가능)
+- [x] Prettier + Tailwind CSS Intellisence 사용 시 너무 느리다면?<br />[Rome](https://rome.tools/) 사용 권장
 
 ## 대시보드 (관리자 페이지)
 

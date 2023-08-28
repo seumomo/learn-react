@@ -1,13 +1,15 @@
 import { create } from 'zustand';
 
-const listStore = (set) => ({
+export const useListStore = create((set) => ({
+  // Query
   list: [
     {
       id: crypto.randomUUID(),
-      title: 'Zustand는 츄스탄트로 발음합니다.',
+      title: 'Zustand는 츄~스탄트로 발음합니다.',
     },
   ],
 
+  // Mutation
   addItem: (newItemTitle) =>
     set((state) => ({
       list: [
@@ -18,11 +20,8 @@ const listStore = (set) => ({
         },
       ],
     })),
-
   deleteItem: (deleteId) =>
     set((state) => ({
       list: state.list.filter((item) => item.id !== deleteId),
     })),
-});
-
-export const useListStore = create(listStore);
+}));
