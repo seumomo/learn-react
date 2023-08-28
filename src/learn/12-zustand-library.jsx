@@ -1,3 +1,5 @@
+import { useListStore } from '@/store/list';
+import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 function ZustandLibrary() {
@@ -72,8 +74,53 @@ function ZustandLibrary() {
           </li>
         </ul>
       </details>
+
+      <AddItemControl />
+      <ItemList />
     </>
   );
 }
 
 export default ZustandLibrary;
+
+function AddItemControl() {
+  const itemRef = useRef();
+  const addItem = useListStore((state) => state.addItem);
+
+  return (
+    <div className="my-5">
+      <input
+        ref={itemRef}
+        type="text"
+        aria-label="학습 주제 추가"
+        placeholder="예) Zustand 발음 10번 하기"
+        className="py-1 px-2 border-b border-b-slate-400 mr-2"
+      />
+      <button type="button" onClick={handleAddItem}>
+        추가
+      </button>
+    </div>
+  );
+}
+
+function ItemList() {
+  const list = useListStore((state) => state.list);
+  return (
+    <ul>
+      {list?.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
+    </ul>
+  );
+}
+
+function Item({ item }) {
+  return (
+    <li key={item.id}>
+      {item.title}
+      <button type="button" onClick={() => handleDeleteItem(item.id)}>
+        삭제
+      </button>
+    </li>
+  );
+}
