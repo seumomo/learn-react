@@ -1,5 +1,3 @@
-import { useCatsStore } from '@/store/cats';
-import { useCountStore } from '@/store/count';
 import { useListStore } from '@/store/list';
 import { string } from 'prop-types';
 import { useRef } from 'react';
@@ -24,54 +22,6 @@ function ZustandLibrary() {
         <title>Zustand Library - Learn</title>
       </Helmet>
       <h2 className="headline text-sky-500">Zustand 라이브러리 활용</h2>
-
-      <div className="flex gap-6">
-        <button className="bg-teal-400" onClick={() => increment(10)}>
-          +
-        </button>
-        <button
-          className="bg-green-400"
-          onClick={() => {
-            decrement(6);
-          }}
-        >
-          -
-        </button>
-        <button className="bg-blue-400" onClick={reset}>
-          reset
-        </button>
-      </div>
-
-      {/* <div className="flex flex-col">
-        <button
-          type="button"
-          onClick={() =>
-            addCat({
-              name: '히로',
-              age: 2,
-              gender: 'male',
-            })
-          }
-        >
-          히로 모집
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            addCat({
-              name: '더미',
-              age: 7,
-              gender: 'female',
-            })
-          }
-        >
-          더미 모집
-        </button>
-        <button type="button" onClick={() => removeCat('히로')}>
-          냥이 삭제
-        </button>
-      </div> */}
-
       <details className="mb-10">
         <summary>Zustand 발음 어떻게 해야할까요?</summary>
 
@@ -151,14 +101,14 @@ export default ZustandLibrary;
 /* -------------------------------------------------------------------------- */
 
 function DisplayCount() {
-  const count = useCountStore((state) => state.count);
+  const list = useListStore((state) => state.list);
 
   return (
     <header className="header">
       <h1>
         <Logo />
       </h1>
-      <output className="output">{count}</output>
+      <output className="output">{list.length}</output>
     </header>
   );
 }
