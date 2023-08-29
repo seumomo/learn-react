@@ -21,8 +21,6 @@ const queryClient = new QueryClient({
   },
 });
 
-const queryClient = new QueryClient();
-
 console.log(queryClient);
 
 function App() {
